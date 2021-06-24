@@ -1,7 +1,7 @@
 # LetMeAsk - nlw6/together
 
 ## Descrição do Projeto
-<p align="center">A aplicação é desenvolvida em formato SPA, e tem como principal objetivo o gerenciamento de perguntas a serem respondidas por um host de uma livestream que estiver usando-a.</p>
+<p align="center">A aplicação é desenvolvida em formato SPA, e tem como principal objetivo o gerenciamento de perguntas feitas pelos viewers de uma stream para que assim o streamer possa organizar o que ja foi respondido ou não.</p>
 
 <h4 align="center"> 
 	🛠Em desenvolvimento🛠
@@ -10,8 +10,8 @@
 ### Features
 
 - [ ] Design da interface
-- [ ] Sistema de autenticação
-- [ ] Armazenamento de perguntas
+- [X] Sistema de autenticação
+- [X] Armazenamento de perguntas
 - [ ] Interação Host-Viewer
 - [ ] Botões de gerenciamento admin
 
@@ -21,6 +21,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 - [Firebase](https://firebase.google.com/)
 - [React](https://reactjs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Sass](https://sass-lang.com/)
 
 ### Autor
 
