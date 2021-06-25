@@ -10,11 +10,22 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            img{
+                max-height: 45px;
+            }
+
+            > div {
+                display: flex;
+                gap: 16px;
+
+                button{
+                    height: 36px;
+                }
+            }
         }
 
-        img{
-            max-height: 45px;
-        }
+        
     }
 
     main{
@@ -22,7 +33,7 @@
         margin: 0 auto;
 
         .room-title{
-            margin: 30px;
+            margin: 30px 0;
             display: flex;
             align-items: center;
 
@@ -98,6 +109,10 @@
                 }
             }
 
+        }
+
+        .question-list{
+            margin: 32px 0;
         }
     }
 

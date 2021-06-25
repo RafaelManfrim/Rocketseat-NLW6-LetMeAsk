@@ -31,7 +31,7 @@ export function NewRoom(){
             admId: user?.id
         })
 
-        history.push(`/salas/${firebaseRoom.key}`)
+        history.push(`/admin/salas/${firebaseRoom.key}`)
     }
 
     return(
