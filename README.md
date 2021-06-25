@@ -9,11 +9,12 @@
 
 ### Features
 
-- [ ] Design da interface
+- [X] Design da interface
 - [X] Sistema de autenticação
 - [X] Armazenamento de perguntas
-- [ ] Interação Host-Viewer
-- [ ] Botões de gerenciamento admin
+- [X] Interação Host-Viewer
+- [X] Botões de gerenciamento admin
+- [ ] Funcionalidades extras 
 
 ### 🛠 Tecnologias
 
