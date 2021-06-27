@@ -41,7 +41,7 @@ export function Home(){
             return
         }
 
-        if(!roomRef.val().endedAt){
+        if(roomRef.val().endedAt){
             alert('A sala foi fechada')
             return
         }

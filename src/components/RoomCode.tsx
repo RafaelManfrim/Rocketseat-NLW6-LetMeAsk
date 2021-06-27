@@ -18,8 +18,8 @@ export function RoomCode(props: RoomCodeProps) {
         <button className="room-code" onClick={copyRoomCode}>
             <div>
                 <img src={copyImg} alt="Copiar código" />
+                <span>Sala #{RoomId}</span>
             </div>
-            <span>Sala #{RoomId}</span>
         </button>   
     )
 }

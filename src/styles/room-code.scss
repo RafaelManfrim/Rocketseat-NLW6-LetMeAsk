@@ -2,29 +2,26 @@
     height: 40px;
     border-radius: 8px;
     overflow: hidden;
-
-    background: #fff;
     border: 1px solid #835afd;
+    background-color: #835afd;
     cursor: pointer;
 
-    display: flex;
-
     div {
-        background-color: #835afd;
         padding: 0 10px;
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
         height: 100%;
+        width: 280px;
+
+        span{
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+        }
     }
 
-    span{
-        display: block;
-        align-self: center;
-        flex: 1;
-        padding: 0 16px 0 12px;
-        width: 240px;
-        font-size: 14px;
-        font-weight: 500;
+    &:hover{
+        filter: brightness(0.9);
     }
 }

@@ -7,8 +7,6 @@ import { AdminRoom } from './pages/AdminRoom';
 
 import { AuthContextProvider } from './context/authContext'
 
-
-
 function App() {
 
   return (

@@ -1,7 +1,8 @@
-import { FormEvent, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { FormEvent, useEffect, useState } from 'react'
+import { useHistory, useParams } from 'react-router-dom'
 
 import logoImg from '../assets/images/logo.svg'
+import NoQuestionImg from '../assets/images/empty-questions.svg'
 
 import { Button } from '../components/Button'
 import { Question } from '../components/Question'
@@ -10,7 +11,7 @@ import { RoomCode } from '../components/RoomCode'
 import { useAuth } from '../hooks/useAuth'
 import { useRoom } from '../hooks/useRoom'
 
-import { database } from '../services/firebase'
+import { auth, database } from '../services/firebase'
 
 import '../styles/room.scss'
 
@@ -20,7 +21,8 @@ type RoomParams = {
 
 export function Room(){
 
-    const {user} = useAuth()
+    const history = useHistory()
+    const {user, sighInWithGoogle} = useAuth()
     const params = useParams<RoomParams>()
     const roomId = params.id
 
@@ -64,12 +66,36 @@ export function Room(){
         }
     }
 
+    useEffect(() => {
+        const roomRef = database.ref(`rooms/${roomId}`)
+      
+        roomRef.get().then(room => {
+            if (room.val().endedAt) {
+                history.push('/')
+            }
+        })
+
+        return () => {
+            roomRef.off('value')
+        }
+
+    }, [roomId, history])
+
     return(
         <div id="page-room">
             <header>
                 <div className="content">
                     <img src={logoImg} alt="Logo LetMeAsk" />
-                    <RoomCode code={roomId}/>
+                    <div>
+                        <RoomCode code={roomId}/>
+                        <Button isOutlined onClick={
+                            async function signOut(){
+                                await auth.signOut()
+                                history.push('/')
+                                window.location.reload()
+                            }}
+                        >Sair</Button>
+                    </div>
                 </div>
             </header>
             <main className="content">
@@ -91,11 +117,21 @@ export function Room(){
                                 <span>{user.name}</span>
                             </div>
                         ):(
-                            <span>Para enviar uma pergunta, <button>faça login</button></span>
+                            <span>Para enviar uma pergunta, <button onClick={sighInWithGoogle}>faça login</button></span>
                         )}
                         <Button type="submit" disabled={!user}>Enviar pergunta</Button>
                     </div>
                 </form>
+
+                { questions.length === 0 ? (
+                    <div className="no-question">
+                        <img src={NoQuestionImg} alt="Não há pergustas por enquanto" />
+                        <h3>Nenhuma pergunta</h3>
+                        <p>Seja o primeiro a perguntar</p>
+                    </div> 
+                ):( 
+                    <></>
+                )}
 
                 <div className="question-list">
                     {questions.map(questions => {
